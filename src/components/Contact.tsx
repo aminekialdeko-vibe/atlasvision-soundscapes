@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Send, Instagram, Music2, Youtube, Mail } from "lucide-react";
+import { Send, Instagram, Music2, Mail } from "lucide-react";
 import { z } from "zod";
 
 const contactSchema = z.object({
@@ -37,22 +37,17 @@ const Contact = () => {
   const socialLinks = [
     {
       icon: Instagram,
-      href: "https://instagram.com/atlasvision",
+      href: "https://www.instagram.com/tranceamine-vibe/",
       label: "Instagram",
     },
     {
       icon: Music2,
-      href: "https://soundcloud.com/atlasvision",
+      href: "https://soundcloud.com/tranceamine-vibe",
       label: "SoundCloud",
     },
     {
-      icon: Youtube,
-      href: "https://youtube.com/@atlasvision",
-      label: "YouTube",
-    },
-    {
       icon: Mail,
-      href: "mailto:contact@atlasvision.com",
+      href: "mailto:Aminekialdeko@gmail.com",
       label: "Email",
     },
   ];
