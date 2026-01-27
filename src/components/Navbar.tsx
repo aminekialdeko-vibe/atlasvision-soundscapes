@@ -40,7 +40,7 @@ const Navbar = () => {
 
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-center gap-8">
-            {["home", "about", "music", "contact"].map((item) => (
+            {["home", "about", "story", "music", "contact"].map((item) => (
               <button
                 key={item}
                 onClick={() => scrollToSection(item)}
@@ -60,11 +60,10 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border">
             <div className="flex flex-col py-4">
-              {["home", "about", "music", "contact"].map((item) => (
+              {["home", "about", "story", "music", "contact"].map((item) => (
                 <button
                   key={item}
                   onClick={() => scrollToSection(item)}
