@@ -47,8 +47,8 @@ const StoryGallery = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>
 
-        {/* Gallery Container */}
-        <div className="relative max-w-4xl mx-auto">
+        {/* Gallery Container - Slightly smaller for intimate feel */}
+        <div className="relative max-w-5xl mx-auto">
           {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
@@ -66,17 +66,17 @@ const StoryGallery = () => {
             <ChevronRight className="w-6 h-6 md:w-7 md:h-7 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Image Display */}
-          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl">
+          {/* Image Display - 16:9 aspect ratio */}
+          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl aspect-[16/9]">
             <div
-              className={`transition-opacity duration-300 ease-in-out ${
+              className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
               <img
                 src={images[currentIndex]}
                 alt={`Atlas Vision story ${currentIndex + 1} of ${images.length}`}
-                className="w-full h-auto block"
+                className="w-full h-full object-cover object-center"
               />
             </div>
           </div>
