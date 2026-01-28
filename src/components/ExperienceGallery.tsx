@@ -29,7 +29,7 @@ const ExperienceGallery = () => {
   };
 
   return (
-    <section id="experience" className="py-8 md:py-10 min-h-fit bg-background relative overflow-hidden">
+    <section id="experience" className="py-10 min-h-[600px] md:min-h-[900px] bg-background relative overflow-visible">
       {/* Decorative gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
 
@@ -38,7 +38,7 @@ const ExperienceGallery = () => {
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             <span className="text-gradient-sunset">The Experience</span>
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
+          <p className="text-muted-foreground text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
             Atlas Vision invites you into a world of sonic exploration
           </p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
@@ -63,17 +63,17 @@ const ExperienceGallery = () => {
             <ChevronRight className="w-6 h-6 md:w-7 md:h-7 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Image Display - 16:9 aspect ratio with contain to show full image */}
-          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl min-h-[300px] md:min-h-[500px] flex items-center justify-center">
+          {/* Image Display - 16:9 (1920x1080) with contain to show full image */}
+          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl min-h-[350px] md:min-h-[540px] flex items-center justify-center p-4">
             <div
-              className={`w-full transition-opacity duration-300 ease-in-out ${
+              className={`w-full h-full flex items-center justify-center transition-opacity duration-300 ease-in-out ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
               <img
                 src={images[currentIndex]}
                 alt={`Atlas Vision experience ${currentIndex + 1} of ${images.length}`}
-                className="w-full h-auto max-h-[70vh] object-contain object-center mx-auto"
+                className="max-w-full max-h-[500px] md:max-h-[600px] w-auto h-auto object-contain object-center"
               />
             </div>
           </div>
@@ -101,7 +101,7 @@ const ExperienceGallery = () => {
             ))}
           </div>
 
-          <p className="text-center text-muted-foreground mt-4 text-sm">
+          <p className="text-center text-muted-foreground mt-4 text-sm md:text-base">
             {currentIndex + 1} / {images.length}
           </p>
         </div>
