@@ -29,7 +29,7 @@ const ExperienceGallery = () => {
   };
 
   return (
-    <section id="experience" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="experience" className="py-8 md:py-10 min-h-fit bg-background relative overflow-hidden">
       {/* Decorative gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
 
@@ -63,17 +63,17 @@ const ExperienceGallery = () => {
             <ChevronRight className="w-6 h-6 md:w-7 md:h-7 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Image Display - 16:9 aspect ratio */}
-          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl aspect-[16/9]">
+          {/* Image Display - 16:9 aspect ratio with contain to show full image */}
+          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl min-h-[300px] md:min-h-[500px] flex items-center justify-center">
             <div
-              className={`absolute inset-0 transition-opacity duration-300 ease-in-out ${
+              className={`w-full transition-opacity duration-300 ease-in-out ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
               <img
                 src={images[currentIndex]}
                 alt={`Atlas Vision experience ${currentIndex + 1} of ${images.length}`}
-                className="w-full h-full object-cover object-center"
+                className="w-full h-auto max-h-[70vh] object-contain object-center mx-auto"
               />
             </div>
           </div>
