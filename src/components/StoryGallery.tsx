@@ -47,36 +47,36 @@ const StoryGallery = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>
 
-        {/* Gallery Container - Slightly smaller for intimate feel */}
-        <div className="relative max-w-5xl mx-auto">
+        {/* Gallery Container - Professional editorial size */}
+        <div className="relative max-w-4xl mx-auto">
           {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
+            className="absolute left-2 md:-left-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
             aria-label="Previous image"
           >
-            <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 group-hover:-translate-x-0.5 transition-transform" />
+            <ChevronLeft className="w-5 h-5 md:w-6 md:h-6 group-hover:-translate-x-0.5 transition-transform" />
           </button>
 
           <button
             onClick={goToNext}
-            className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
+            className="absolute right-2 md:-right-14 top-1/2 -translate-y-1/2 z-20 w-10 h-10 md:w-12 md:h-12 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
             aria-label="Next image"
           >
-            <ChevronRight className="w-6 h-6 md:w-7 md:h-7 group-hover:translate-x-0.5 transition-transform" />
+            <ChevronRight className="w-5 h-5 md:w-6 md:h-6 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Image Display - 16:9 (1600x900) with contain to show full image */}
-          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl min-h-[320px] md:min-h-[500px] flex items-center justify-center p-4">
+          {/* Image Display - Professional portfolio size */}
+          <div className="relative bg-card/30 backdrop-blur-sm rounded-xl border border-border/50 overflow-hidden shadow-lg">
             <div
-              className={`w-full h-full flex items-center justify-center transition-opacity duration-300 ease-in-out ${
+              className={`w-full flex items-center justify-center transition-opacity duration-300 ease-in-out p-3 ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
               <img
                 src={images[currentIndex]}
                 alt={`Atlas Vision story ${currentIndex + 1} of ${images.length}`}
-                className="max-w-full max-h-[450px] md:max-h-[550px] w-auto h-auto object-contain object-center"
+                className="max-w-full max-h-[320px] md:max-h-[420px] w-auto h-auto object-contain object-center rounded-lg"
               />
             </div>
           </div>
