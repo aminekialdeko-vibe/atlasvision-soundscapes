@@ -1,10 +1,13 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
+import story4 from "@/assets/gallery/story-4.png";
 import story5 from "@/assets/gallery/story-5.png";
 import story6 from "@/assets/gallery/story-6.png";
 
-const images = [story5, story6];
+// Images 4, 5, 6 assigned to The Experience section
+// Note: Image 7 is pending - add when available
+const images = [story4, story5, story6];
 
 const ExperienceGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -46,7 +49,7 @@ const ExperienceGallery = () => {
 
         {/* Gallery Container - Full width 16:9 for desktop */}
         <div className="relative max-w-6xl mx-auto">
-          {/* Navigation Arrows */}
+          {/* Navigation Arrows - Positioned below image on mobile */}
           <button
             onClick={goToPrevious}
             className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
