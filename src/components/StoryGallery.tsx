@@ -5,9 +5,9 @@ import story0 from "@/assets/gallery/story-0.png";
 import story1 from "@/assets/gallery/story-1.png";
 import story2 from "@/assets/gallery/story-2.png";
 import story3 from "@/assets/gallery/story-3.png";
-import story4 from "@/assets/gallery/story-4.png";
 
-const images = [story0, story1, story2, story3, story4];
+// Images 0, 1, 2, 3 assigned to The Story section
+const images = [story0, story1, story2, story3];
 
 const StoryGallery = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
