@@ -32,12 +32,12 @@ const StoryGallery = () => {
   };
 
   return (
-    <section id="story" className="py-6 min-h-[75vh] bg-background relative overflow-visible">
+    <section id="story" className="py-10 min-h-[600px] md:min-h-[900px] bg-background relative overflow-visible">
       {/* Decorative gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-accent/5 via-transparent to-accent/5" />
 
-      <div className="w-full px-4 md:px-8 relative z-10">
-        <div className="text-center mb-8">
+      <div className="container mx-auto px-6 relative z-10">
+        <div className="text-center mb-12">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
             <span className="text-gradient-sunset">The Story</span>
           </h2>
@@ -47,12 +47,12 @@ const StoryGallery = () => {
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>
 
-        {/* Gallery Container - Full width immersive */}
-        <div className="relative w-full max-w-[1920px] mx-auto">
+        {/* Gallery Container - Slightly smaller for intimate feel */}
+        <div className="relative max-w-5xl mx-auto">
           {/* Navigation Arrows */}
           <button
             onClick={goToPrevious}
-            className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/60 hover:border-white/40 transition-all duration-300 group"
+            className="absolute left-2 md:-left-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
             aria-label="Previous image"
           >
             <ChevronLeft className="w-6 h-6 md:w-7 md:h-7 group-hover:-translate-x-0.5 transition-transform" />
@@ -60,29 +60,29 @@ const StoryGallery = () => {
 
           <button
             onClick={goToNext}
-            className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-black/40 backdrop-blur-sm border border-white/20 flex items-center justify-center text-white hover:bg-black/60 hover:border-white/40 transition-all duration-300 group"
+            className="absolute right-2 md:-right-16 top-1/2 -translate-y-1/2 z-20 w-12 h-12 md:w-14 md:h-14 rounded-full bg-card/80 backdrop-blur-sm border border-border/50 flex items-center justify-center text-foreground hover:text-primary hover:border-primary/50 hover:bg-card transition-all duration-300 group"
             aria-label="Next image"
           >
             <ChevronRight className="w-6 h-6 md:w-7 md:h-7 group-hover:translate-x-0.5 transition-transform" />
           </button>
 
-          {/* Image Display - Immersive full width */}
-          <div className="relative w-full overflow-hidden rounded-lg md:rounded-xl">
+          {/* Image Display - 16:9 (1600x900) with contain to show full image */}
+          <div className="relative bg-card/30 backdrop-blur-sm rounded-2xl border border-border/50 overflow-hidden shadow-2xl min-h-[320px] md:min-h-[500px] flex items-center justify-center p-4">
             <div
-              className={`w-full transition-opacity duration-300 ease-in-out ${
+              className={`w-full h-full flex items-center justify-center transition-opacity duration-300 ease-in-out ${
                 isTransitioning ? "opacity-0" : "opacity-100"
               }`}
             >
               <img
                 src={images[currentIndex]}
                 alt={`Atlas Vision story ${currentIndex + 1} of ${images.length}`}
-                className="w-full h-auto min-h-[50vh] max-h-[70vh] object-contain object-center"
+                className="max-w-full max-h-[450px] md:max-h-[550px] w-auto h-auto object-contain object-center"
               />
             </div>
           </div>
 
           {/* Image Counter */}
-          <div className="flex items-center justify-center gap-3 mt-6">
+          <div className="flex items-center justify-center gap-3 mt-8">
             {images.map((_, index) => (
               <button
                 key={index}
@@ -104,7 +104,7 @@ const StoryGallery = () => {
             ))}
           </div>
 
-          <p className="text-center text-muted-foreground mt-3 text-sm md:text-base">
+          <p className="text-center text-muted-foreground mt-4 text-sm md:text-base">
             {currentIndex + 1} / {images.length}
           </p>
         </div>
