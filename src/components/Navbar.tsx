@@ -1,9 +1,12 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
+import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,6 +23,15 @@ const Navbar = () => {
     }
     setIsMobileMenuOpen(false);
   };
+
+  const navItems = [
+    { id: "home", label: t.nav.home },
+    { id: "about", label: t.nav.about },
+    { id: "experience", label: t.nav.experience },
+    { id: "story", label: t.nav.story },
+    { id: "music", label: t.nav.music },
+    { id: "contact", label: t.nav.contact },
+  ];
 
   return (
     <nav
@@ -39,37 +51,41 @@ const Navbar = () => {
           </button>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
-            {["home", "about", "experience", "story", "music", "contact"].map((item) => (
+          <div className="hidden md:flex items-center gap-6">
+            {navItems.map((item) => (
               <button
-                key={item}
-                onClick={() => scrollToSection(item)}
-                className="text-foreground/80 hover:text-primary transition-colors duration-300 capitalize font-medium"
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
               >
-                {item}
+                {item.label}
               </button>
             ))}
+            <LanguageSelector />
           </div>
 
           {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-foreground"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="flex items-center gap-4 md:hidden">
+            <LanguageSelector />
+            <button
+              className="text-foreground"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
 
         {isMobileMenuOpen && (
           <div className="md:hidden absolute top-full left-0 right-0 bg-background/95 backdrop-blur-md border-b border-border">
             <div className="flex flex-col py-4">
-              {["home", "about", "experience", "story", "music", "contact"].map((item) => (
+              {navItems.map((item) => (
                 <button
-                  key={item}
-                  onClick={() => scrollToSection(item)}
-                  className="px-6 py-3 text-left text-foreground/80 hover:text-primary hover:bg-muted/50 transition-colors duration-300 capitalize"
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="px-6 py-3 text-left text-foreground/80 hover:text-primary hover:bg-muted/50 transition-colors duration-300"
                 >
-                  {item}
+                  {item.label}
                 </button>
               ))}
             </div>

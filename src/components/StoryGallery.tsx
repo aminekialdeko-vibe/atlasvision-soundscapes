@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 import story0 from "@/assets/gallery/story-0.png";
 import story1 from "@/assets/gallery/story-1.png";
@@ -10,6 +11,7 @@ import story3 from "@/assets/gallery/story-3.png";
 const images = [story0, story1, story2, story3];
 
 const StoryGallery = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -39,10 +41,10 @@ const StoryGallery = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-gradient-sunset">The Story</span>
+            <span className="text-gradient-sunset">{t.story.title}</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-            Explore the universe of Atlas Vision, step by step
+            {t.story.subtitle}
           </p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>

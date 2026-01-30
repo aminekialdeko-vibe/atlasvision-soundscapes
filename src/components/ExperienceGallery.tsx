@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronLeft, ChevronRight } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 import story4 from "@/assets/gallery/story-4.png";
 import story5 from "@/assets/gallery/story-5.png";
@@ -10,6 +11,7 @@ import story6 from "@/assets/gallery/story-6.png";
 const images = [story4, story5, story6];
 
 const ExperienceGallery = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
@@ -39,10 +41,10 @@ const ExperienceGallery = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-12">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-gradient-sunset">The Experience</span>
+            <span className="text-gradient-sunset">{t.experience.title}</span>
           </h2>
           <p className="text-muted-foreground text-base md:text-lg lg:text-xl max-w-2xl mx-auto leading-relaxed">
-            Atlas Vision invites you into a world of sonic exploration
+            {t.experience.subtitle}
           </p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>

@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from "react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
   const [visibleParagraphs, setVisibleParagraphs] = useState<boolean[]>([
     false,
     false,
@@ -36,19 +38,16 @@ const About = () => {
 
   const paragraphs = [
     {
-      title: "The Journey Begins",
-      content:
-        "Atlas Vision was born from a deep connection to the natural world and the desire to translate its beauty into sound. Inspired by vast desert landscapes, ancient forests, and the infinite expanse of the night sky, this musical project weaves together organic textures with electronic production to create immersive sonic experiences that transport listeners to otherworldly realms.",
+      title: t.about.journey.title,
+      content: t.about.journey.content,
     },
     {
-      title: "The Sound Universe",
-      content:
-        "Drawing from the rich traditions of downtempo, organic psytrance, and psychill, Atlas Vision crafts soundscapes that breathe with life. Each track is a meditation on the relationship between humanity and nature, blending ethereal melodies with grounding basslines, tribal rhythms with cosmic synthesizers. The music invites you to close your eyes and embark on an inner journey of self-discovery.",
+      title: t.about.sound.title,
+      content: t.about.sound.content,
     },
     {
-      title: "The Vision Forward",
-      content:
-        "More than just music, Atlas Vision is a philosophy of presence and wonder. In a world that moves too fast, these sound journeys offer a sanctuary for the soul—a space to disconnect from the noise and reconnect with what matters. Whether experienced in the solitude of headphones or the collective energy of a festival, Atlas Vision promises a transformative encounter with the sublime.",
+      title: t.about.vision.title,
+      content: t.about.vision.content,
     },
   ];
 
@@ -64,7 +63,7 @@ const About = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-gradient-sunset">About</span>
+            <span className="text-gradient-sunset">{t.about.title}</span>
           </h2>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full" />
         </div>

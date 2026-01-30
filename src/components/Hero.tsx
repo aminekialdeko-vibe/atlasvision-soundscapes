@@ -1,8 +1,11 @@
 import { ChevronDown, Headphones } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/i18n/LanguageContext";
 import heroImage from "@/assets/hero-desert-cosmic.jpg";
 
 const Hero = () => {
+  const { t } = useLanguage();
+
   const scrollToMusic = () => {
     const element = document.getElementById("music");
     if (element) {
@@ -49,17 +52,15 @@ const Hero = () => {
       {/* Content */}
       <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
         <h1 className="font-display text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-fade-up">
-          <span className="text-gradient-sunset">Atlas Vision</span>
+          <span className="text-gradient-sunset">{t.hero.title}</span>
         </h1>
 
         <p className="text-lg md:text-xl lg:text-2xl text-foreground/90 font-light mb-6 animate-fade-up-delay-1 font-display italic">
-          Sound journeys between nature, trance and cosmic energy
+          {t.hero.subtitle}
         </p>
 
         <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 animate-fade-up-delay-2 leading-relaxed">
-          Atlas Vision creates immersive musical spaces where downtempo, organic &
-          melodic psytrance, and psychill meet, inviting disconnection, presence, and
-          wonder.
+          {t.hero.description}
         </p>
 
         <div className="animate-fade-up-delay-3">
@@ -70,7 +71,7 @@ const Hero = () => {
             className="group"
           >
             <Headphones className="mr-2 h-5 w-5 group-hover:animate-pulse" />
-            Listen Now
+            {t.hero.cta}
           </Button>
         </div>
       </div>

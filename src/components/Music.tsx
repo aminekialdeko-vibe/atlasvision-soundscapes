@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { ChevronDown, ChevronUp, Music as MusicIcon } from "lucide-react";
+import { useLanguage } from "@/i18n/LanguageContext";
 
 interface TrackProps {
   title: string;
@@ -54,24 +55,26 @@ const Track = ({ title, embedUrl, description }: TrackProps) => {
 };
 
 const Music = () => {
+  const { t } = useLanguage();
+
   const tracks: TrackProps[] = [
     {
-      title: "Desert Dawn",
+      title: t.music.tracks.desertDawn.title,
       embedUrl:
         "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1234567890&color=%23d4a056&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
-      description: "Downtempo journey through golden dunes",
+      description: t.music.tracks.desertDawn.description,
     },
     {
-      title: "Cosmic Whispers",
+      title: t.music.tracks.cosmicWhispers.title,
       embedUrl:
         "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1234567891&color=%23d4a056&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
-      description: "Melodic psytrance exploration",
+      description: t.music.tracks.cosmicWhispers.description,
     },
     {
-      title: "Ancient Echoes",
+      title: t.music.tracks.ancientEchoes.title,
       embedUrl:
         "https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/1234567892&color=%23d4a056&auto_play=false&hide_related=true&show_comments=false&show_user=true&show_reposts=false&show_teaser=false",
-      description: "Psychill meditation",
+      description: t.music.tracks.ancientEchoes.description,
     },
   ];
 
@@ -83,10 +86,10 @@ const Music = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-gradient-sunset">Music</span>
+            <span className="text-gradient-sunset">{t.music.title}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Immerse yourself in sonic landscapes crafted to transport your mind
+            {t.music.subtitle}
           </p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>
@@ -98,7 +101,7 @@ const Music = () => {
         </div>
 
         <p className="text-center text-muted-foreground mt-8 text-sm">
-          Click on a track to expand and listen
+          {t.music.clickToExpand}
         </p>
       </div>
     </section>

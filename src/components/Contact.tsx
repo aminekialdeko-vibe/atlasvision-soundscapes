@@ -5,26 +5,29 @@ import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
 import { Send, Instagram, Music2, Mail } from "lucide-react";
 import { z } from "zod";
-
-const contactSchema = z.object({
-  name: z
-    .string()
-    .trim()
-    .min(1, "Name is required")
-    .max(100, "Name must be less than 100 characters"),
-  email: z
-    .string()
-    .trim()
-    .email("Please enter a valid email")
-    .max(255, "Email must be less than 255 characters"),
-  message: z
-    .string()
-    .trim()
-    .min(1, "Message is required")
-    .max(1000, "Message must be less than 1000 characters"),
-});
+import { useLanguage } from "@/i18n/LanguageContext";
 
 const Contact = () => {
+  const { t } = useLanguage();
+
+  const contactSchema = z.object({
+    name: z
+      .string()
+      .trim()
+      .min(1, t.contact.validation.nameRequired)
+      .max(100, t.contact.validation.nameMax),
+    email: z
+      .string()
+      .trim()
+      .email(t.contact.validation.emailInvalid)
+      .max(255, t.contact.validation.emailMax),
+    message: z
+      .string()
+      .trim()
+      .min(1, t.contact.validation.messageRequired)
+      .max(1000, t.contact.validation.messageMax),
+  });
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -85,8 +88,8 @@ const Contact = () => {
     await new Promise((resolve) => setTimeout(resolve, 1000));
 
     toast({
-      title: "Message sent!",
-      description: "Thank you for reaching out. We'll get back to you soon.",
+      title: t.contact.toast.title,
+      description: t.contact.toast.description,
     });
 
     setFormData({ name: "", email: "", message: "" });
@@ -105,10 +108,10 @@ const Contact = () => {
       <div className="container mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold mb-4">
-            <span className="text-gradient-sunset">Get in Touch</span>
+            <span className="text-gradient-sunset">{t.contact.title}</span>
           </h2>
           <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-            Interested in collaborations, bookings, or just want to say hello?
+            {t.contact.subtitle}
           </p>
           <div className="w-24 h-1 bg-primary mx-auto rounded-full mt-6" />
         </div>
@@ -120,7 +123,7 @@ const Contact = () => {
               <div>
                 <Input
                   name="name"
-                  placeholder="Your Name"
+                  placeholder={t.contact.form.name}
                   value={formData.name}
                   onChange={handleChange}
                   className="bg-muted/50 border-border/50 focus:border-primary"
@@ -134,7 +137,7 @@ const Contact = () => {
                 <Input
                   name="email"
                   type="email"
-                  placeholder="Your Email"
+                  placeholder={t.contact.form.email}
                   value={formData.email}
                   onChange={handleChange}
                   className="bg-muted/50 border-border/50 focus:border-primary"
@@ -147,7 +150,7 @@ const Contact = () => {
               <div>
                 <Textarea
                   name="message"
-                  placeholder="Your Message"
+                  placeholder={t.contact.form.message}
                   rows={5}
                   value={formData.message}
                   onChange={handleChange}
@@ -168,11 +171,11 @@ const Contact = () => {
                 disabled={isSubmitting}
               >
                 {isSubmitting ? (
-                  "Sending..."
+                  t.contact.form.sending
                 ) : (
                   <>
                     <Send className="mr-2 h-4 w-4" />
-                    Send Message
+                    {t.contact.form.submit}
                   </>
                 )}
               </Button>
@@ -182,11 +185,10 @@ const Contact = () => {
           {/* Social Links */}
           <div className="flex flex-col justify-center">
             <h3 className="font-display text-2xl font-semibold text-foreground mb-6">
-              Connect With Us
+              {t.contact.social.title}
             </h3>
             <p className="text-muted-foreground mb-8">
-              Follow Atlas Vision on social media for the latest releases,
-              updates, and behind-the-scenes content.
+              {t.contact.social.description}
             </p>
 
             <div className="grid grid-cols-2 gap-4">
