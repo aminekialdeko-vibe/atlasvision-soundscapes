@@ -6,6 +6,7 @@ import { useToast } from "@/hooks/use-toast";
 import { Send, Instagram, Music2, Mail } from "lucide-react";
 import { z } from "zod";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { supabase } from "@/integrations/supabase/client";
 
 const Contact = () => {
   const { t } = useLanguage();
@@ -84,16 +85,39 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1000));
+    try {
+      const { data, error } = await supabase.functions.invoke("send-contact-email", {
+        body: {
+          name: result.data.name,
+          email: result.data.email,
+          message: result.data.message,
+        },
+      });
 
-    toast({
-      title: t.contact.toast.title,
-      description: t.contact.toast.description,
-    });
-
-    setFormData({ name: "", email: "", message: "" });
-    setIsSubmitting(false);
+      if (error) {
+        console.error("Error sending email:", error);
+        toast({
+          title: t.contact.toast.errorTitle,
+          description: t.contact.toast.errorDescription,
+          variant: "destructive",
+        });
+      } else {
+        toast({
+          title: t.contact.toast.title,
+          description: t.contact.toast.description,
+        });
+        setFormData({ name: "", email: "", message: "" });
+      }
+    } catch (error) {
+      console.error("Error sending email:", error);
+      toast({
+        title: t.contact.toast.errorTitle,
+        description: t.contact.toast.errorDescription,
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
