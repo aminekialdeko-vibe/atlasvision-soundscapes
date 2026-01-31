@@ -93,6 +93,8 @@ export const fr = {
     toast: {
       title: "Message envoyé !",
       description: "Merci de nous avoir contactés. Nous vous répondrons bientôt.",
+      errorTitle: "Erreur d'envoi",
+      errorDescription: "Impossible d'envoyer votre message. Veuillez réessayer plus tard.",
     },
     social: {
       title: "Connectez-vous avec nous",
