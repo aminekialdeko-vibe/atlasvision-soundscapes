@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { LanguageProvider } from "@/i18n/LanguageContext";
 import Index from "./pages/Index";
+import Booking from "./pages/Booking";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -19,9 +20,9 @@ const App = () => (
           {/* Redirect root to default language (French) */}
           <Route path="/" element={<Navigate to="/fr" replace />} />
           
-          {/* Language routes */}
+          {/* Language routes - Index */}
           <Route
-            path="/fr/*"
+            path="/fr"
             element={
               <LanguageProvider>
                 <Index />
@@ -29,7 +30,7 @@ const App = () => (
             }
           />
           <Route
-            path="/en/*"
+            path="/en"
             element={
               <LanguageProvider>
                 <Index />
@@ -37,10 +38,36 @@ const App = () => (
             }
           />
           <Route
-            path="/es/*"
+            path="/es"
             element={
               <LanguageProvider>
                 <Index />
+              </LanguageProvider>
+            }
+          />
+          
+          {/* Language routes - Booking */}
+          <Route
+            path="/fr/booking"
+            element={
+              <LanguageProvider>
+                <Booking />
+              </LanguageProvider>
+            }
+          />
+          <Route
+            path="/en/booking"
+            element={
+              <LanguageProvider>
+                <Booking />
+              </LanguageProvider>
+            }
+          />
+          <Route
+            path="/es/booking"
+            element={
+              <LanguageProvider>
+                <Booking />
               </LanguageProvider>
             }
           />

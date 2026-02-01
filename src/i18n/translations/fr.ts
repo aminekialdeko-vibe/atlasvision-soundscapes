@@ -7,6 +7,7 @@ export const fr = {
     story: "Histoire",
     music: "Musique",
     contact: "Contact",
+    booking: "Réserver",
   },
 
   // Hero Section
@@ -100,6 +101,59 @@ export const fr = {
       title: "Connectez-vous avec nous",
       description:
         "Suivez Atlas Vision sur les réseaux sociaux pour les dernières sorties, mises à jour et contenus en coulisses.",
+    },
+  },
+
+  // Booking Section
+  booking: {
+    title: "Réserver Atlas Vision",
+    subtitle: "Disponible pour festivals, événements privés et expériences sur mesure",
+    disclaimer: "Ce formulaire ne constitue pas un engagement ou un contrat. Il s'agit de demandes sérieuses uniquement, suivies d'une réponse personnalisée.",
+    form: {
+      eventName: "Nom de l'événement",
+      eventNamePlaceholder: "ex: Festival Sunset 2026",
+      eventDate: "Date de l'événement",
+      venue: "Lieu / Venue",
+      venuePlaceholder: "ex: Marrakech, Maroc",
+      performanceType: "Type de prestation",
+      performanceTypePlaceholder: "Sélectionner...",
+      performanceTypes: {
+        djSet: "DJ Set",
+        live: "Live",
+        workshop: "Workshop",
+      },
+      duration: "Durée du set",
+      durationPlaceholder: "ex: 2 heures",
+      technicalInfo: "Infos techniques",
+      technicalInfoPlaceholder: "Sonorisation, matériel DJ, autres besoins techniques...",
+      logisticsInfo: "Infos logistiques",
+      logisticsInfoPlaceholder: "Accès, installation, repas, hébergement, autres besoins...",
+      budget: "Budget estimé / Cachet",
+      budgetPlaceholder: "ex: 2 000 € - 3 000 €",
+      message: "Message libre",
+      messagePlaceholder: "Autres détails sur votre événement...",
+      submit: "Envoyer la demande",
+      sending: "Envoi en cours...",
+    },
+    validation: {
+      eventNameRequired: "Le nom de l'événement est requis",
+      eventNameMax: "Le nom doit contenir moins de 200 caractères",
+      eventDateRequired: "La date de l'événement est requise",
+      venueRequired: "Le lieu est requis",
+      venueMax: "Le lieu doit contenir moins de 200 caractères",
+      performanceTypeRequired: "Le type de prestation est requis",
+      durationRequired: "La durée est requise",
+      durationMax: "La durée doit contenir moins de 100 caractères",
+      technicalInfoMax: "Les infos techniques doivent contenir moins de 1000 caractères",
+      logisticsInfoMax: "Les infos logistiques doivent contenir moins de 1000 caractères",
+      budgetMax: "Le budget doit contenir moins de 200 caractères",
+      messageMax: "Le message doit contenir moins de 2000 caractères",
+    },
+    toast: {
+      title: "Demande envoyée !",
+      description: "Merci pour votre intérêt. Nous vous répondrons bientôt avec une réponse personnalisée.",
+      errorTitle: "Erreur d'envoi",
+      errorDescription: "Impossible d'envoyer votre demande. Veuillez réessayer plus tard.",
     },
   },
 

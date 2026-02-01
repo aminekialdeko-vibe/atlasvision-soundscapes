@@ -1,12 +1,17 @@
 import { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import { useLanguage } from "@/i18n/LanguageContext";
+import { useNavigate, useLocation } from "react-router-dom";
 import LanguageSelector from "./LanguageSelector";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { t } = useLanguage();
+  const { t, language } = useLanguage();
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const isBookingPage = location.pathname.includes("/booking");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,10 +22,31 @@ const Navbar = () => {
   }, []);
 
   const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    if (isBookingPage) {
+      // Navigate to home page first, then scroll
+      navigate(`/${language}`);
+      setTimeout(() => {
+        const element = document.getElementById(id);
+        if (element) {
+          element.scrollIntoView({ behavior: "smooth" });
+        }
+      }, 100);
+    } else {
+      const element = document.getElementById(id);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      }
     }
+    setIsMobileMenuOpen(false);
+  };
+
+  const goToBooking = () => {
+    navigate(`/${language}/booking`);
+    setIsMobileMenuOpen(false);
+  };
+
+  const goToHome = () => {
+    navigate(`/${language}`);
     setIsMobileMenuOpen(false);
   };
 
@@ -44,7 +70,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-between">
           <button
-            onClick={() => scrollToSection("home")}
+            onClick={goToHome}
             className="font-display text-2xl font-semibold text-gradient-sunset"
           >
             Atlas Vision
@@ -61,6 +87,12 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={goToBooking}
+              className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
+            >
+              {t.nav.booking}
+            </button>
             <LanguageSelector />
           </div>
 
@@ -88,6 +120,12 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={goToBooking}
+                className="px-6 py-3 text-left text-primary font-medium hover:bg-muted/50 transition-colors duration-300"
+              >
+                {t.nav.booking}
+              </button>
             </div>
           </div>
         )}

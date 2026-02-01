@@ -7,6 +7,7 @@ export const en = {
     story: "Story",
     music: "Music",
     contact: "Contact",
+    booking: "Booking",
   },
 
   // Hero Section
@@ -100,6 +101,59 @@ export const en = {
       title: "Connect With Us",
       description:
         "Follow Atlas Vision on social media for the latest releases, updates, and behind-the-scenes content.",
+    },
+  },
+
+  // Booking Section
+  booking: {
+    title: "Book Atlas Vision",
+    subtitle: "Available for festivals, private events & curated experiences",
+    disclaimer: "This form does not constitute a commitment or contract. It is for serious inquiries only, followed by a personalized response.",
+    form: {
+      eventName: "Event Name",
+      eventNamePlaceholder: "e.g., Sunset Festival 2026",
+      eventDate: "Event Date",
+      venue: "Venue / Location",
+      venuePlaceholder: "e.g., Marrakech, Morocco",
+      performanceType: "Performance Type",
+      performanceTypePlaceholder: "Select type...",
+      performanceTypes: {
+        djSet: "DJ Set",
+        live: "Live Performance",
+        workshop: "Workshop",
+      },
+      duration: "Set Duration",
+      durationPlaceholder: "e.g., 2 hours",
+      technicalInfo: "Technical Information",
+      technicalInfoPlaceholder: "Sound system, DJ equipment, other technical needs...",
+      logisticsInfo: "Logistics Information",
+      logisticsInfoPlaceholder: "Access, setup time, meals, accommodation, other needs...",
+      budget: "Estimated Budget / Fee",
+      budgetPlaceholder: "e.g., €2,000 - €3,000",
+      message: "Additional Message",
+      messagePlaceholder: "Any other details about your event...",
+      submit: "Submit Booking Request",
+      sending: "Sending...",
+    },
+    validation: {
+      eventNameRequired: "Event name is required",
+      eventNameMax: "Event name must be less than 200 characters",
+      eventDateRequired: "Event date is required",
+      venueRequired: "Venue is required",
+      venueMax: "Venue must be less than 200 characters",
+      performanceTypeRequired: "Performance type is required",
+      durationRequired: "Duration is required",
+      durationMax: "Duration must be less than 100 characters",
+      technicalInfoMax: "Technical info must be less than 1000 characters",
+      logisticsInfoMax: "Logistics info must be less than 1000 characters",
+      budgetMax: "Budget must be less than 200 characters",
+      messageMax: "Message must be less than 2000 characters",
+    },
+    toast: {
+      title: "Booking request sent!",
+      description: "Thank you for your interest. We'll get back to you soon with a personalized response.",
+      errorTitle: "Send error",
+      errorDescription: "Unable to send your booking request. Please try again later.",
     },
   },
 
