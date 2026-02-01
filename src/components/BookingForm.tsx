@@ -88,12 +88,20 @@ const BookingForm = () => {
     }
   };
 
-  const handleSelectChange = (value: string) => {
-    setFormData((prev) => ({ ...prev, performanceType: value }));
-    if (errors.performanceType) {
-      setErrors((prev) => ({ ...prev, performanceType: "" }));
+  const handleSelectChange = (name: string, value: string) => {
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) {
+      setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
+
+  const durationOptions = [
+    { value: "2h", label: "2H" },
+    { value: "3h", label: "3H" },
+    { value: "4h", label: "4H" },
+    { value: "5h", label: "5H" },
+    { value: "6h", label: "6H" },
+  ];
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -236,7 +244,7 @@ const BookingForm = () => {
               <Music className="w-4 h-4 text-primary" />
               <label className="text-sm font-medium text-foreground">{t.booking.form.performanceType}</label>
             </div>
-            <Select value={formData.performanceType} onValueChange={handleSelectChange}>
+            <Select value={formData.performanceType} onValueChange={(v) => handleSelectChange("performanceType", v)}>
               <SelectTrigger className="bg-muted/50 border-border/50 focus:border-primary">
                 <SelectValue placeholder={t.booking.form.performanceTypePlaceholder} />
               </SelectTrigger>
@@ -258,13 +266,18 @@ const BookingForm = () => {
               <Clock className="w-4 h-4 text-primary" />
               <label className="text-sm font-medium text-foreground">{t.booking.form.duration}</label>
             </div>
-            <Input
-              name="duration"
-              placeholder={t.booking.form.durationPlaceholder}
-              value={formData.duration}
-              onChange={handleChange}
-              className="bg-muted/50 border-border/50 focus:border-primary"
-            />
+            <Select value={formData.duration} onValueChange={(v) => handleSelectChange("duration", v)}>
+              <SelectTrigger className="bg-muted/50 border-border/50 focus:border-primary">
+                <SelectValue placeholder={t.booking.form.durationPlaceholder} />
+              </SelectTrigger>
+              <SelectContent>
+                {durationOptions.map((option) => (
+                  <SelectItem key={option.value} value={option.value}>
+                    {option.label}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
             {errors.duration && (
               <p className="text-destructive text-sm mt-1">{errors.duration}</p>
             )}
