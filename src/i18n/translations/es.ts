@@ -7,6 +7,7 @@ export const es = {
     story: "Historia",
     music: "Música",
     contact: "Contacto",
+    booking: "Reservar",
   },
 
   // Hero Section
@@ -100,6 +101,59 @@ export const es = {
       title: "Conéctate con nosotros",
       description:
         "Sigue a Atlas Vision en redes sociales para los últimos lanzamientos, actualizaciones y contenido detrás de escenas.",
+    },
+  },
+
+  // Booking Section
+  booking: {
+    title: "Reservar Atlas Vision",
+    subtitle: "Disponible para festivales, eventos privados y experiencias curadas",
+    disclaimer: "Este formulario no constituye un compromiso o contrato. Es solo para consultas serias, seguidas de una respuesta personalizada.",
+    form: {
+      eventName: "Nombre del evento",
+      eventNamePlaceholder: "ej: Festival Sunset 2026",
+      eventDate: "Fecha del evento",
+      venue: "Lugar / Venue",
+      venuePlaceholder: "ej: Marrakech, Marruecos",
+      performanceType: "Tipo de actuación",
+      performanceTypePlaceholder: "Seleccionar...",
+      performanceTypes: {
+        djSet: "DJ Set",
+        live: "En vivo",
+        workshop: "Taller",
+      },
+      duration: "Duración del set",
+      durationPlaceholder: "ej: 2 horas",
+      technicalInfo: "Información técnica",
+      technicalInfoPlaceholder: "Sonido, equipo DJ, otras necesidades técnicas...",
+      logisticsInfo: "Información logística",
+      logisticsInfoPlaceholder: "Acceso, montaje, comidas, alojamiento, otras necesidades...",
+      budget: "Presupuesto estimado / Tarifa",
+      budgetPlaceholder: "ej: €2,000 - €3,000",
+      message: "Mensaje adicional",
+      messagePlaceholder: "Otros detalles sobre tu evento...",
+      submit: "Enviar solicitud",
+      sending: "Enviando...",
+    },
+    validation: {
+      eventNameRequired: "El nombre del evento es requerido",
+      eventNameMax: "El nombre debe tener menos de 200 caracteres",
+      eventDateRequired: "La fecha del evento es requerida",
+      venueRequired: "El lugar es requerido",
+      venueMax: "El lugar debe tener menos de 200 caracteres",
+      performanceTypeRequired: "El tipo de actuación es requerido",
+      durationRequired: "La duración es requerida",
+      durationMax: "La duración debe tener menos de 100 caracteres",
+      technicalInfoMax: "La info técnica debe tener menos de 1000 caracteres",
+      logisticsInfoMax: "La info logística debe tener menos de 1000 caracteres",
+      budgetMax: "El presupuesto debe tener menos de 200 caracteres",
+      messageMax: "El mensaje debe tener menos de 2000 caracteres",
+    },
+    toast: {
+      title: "¡Solicitud enviada!",
+      description: "Gracias por tu interés. Te responderemos pronto con una respuesta personalizada.",
+      errorTitle: "Error de envío",
+      errorDescription: "No se pudo enviar tu solicitud. Por favor intenta más tarde.",
     },
   },
 
