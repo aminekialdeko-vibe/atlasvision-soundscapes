@@ -70,7 +70,7 @@ const Navbar = () => {
       <div className="container mx-auto px-6 py-4">
         <div className="flex items-center justify-center">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-6">
+          <div className="hidden md:flex w-full flex-wrap items-center justify-center gap-x-6 gap-y-3 text-center">
             {navItems.map((item) => (
               <button
                 key={item.id}
@@ -90,7 +90,7 @@ const Navbar = () => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="flex items-center gap-4 md:hidden">
+          <div className="flex w-full items-center justify-center gap-4 md:hidden">
             <LanguageSelector />
             <button
               className="text-foreground"
