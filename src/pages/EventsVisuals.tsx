@@ -9,9 +9,12 @@ import event3 from "@/assets/events/event-3.png";
 // Poster images
 import poster1 from "@/assets/events/poster-1.png";
 import poster2 from "@/assets/events/poster-2.png";
+import poster3 from "@/assets/events/poster-3.png";
+import poster4 from "@/assets/events/poster-4.png";
+import poster5 from "@/assets/events/poster-5.png";
 
 const eventImages = [event1, event2, event3];
-const posterImages = [poster1, poster2];
+const posterImages = [poster1, poster2, poster3, poster4, poster5];
 
 const EventsVisuals = () => {
   return (
@@ -51,7 +54,7 @@ const EventsVisuals = () => {
       {/* Posters & Flyers Section */}
       <section className="py-12 px-6 pb-24">
         <div className="container mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {posterImages.map((img, index) => (
               <div 
                 key={index} 
