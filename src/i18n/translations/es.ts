@@ -6,6 +6,7 @@ export const es = {
     experience: "Experiencia",
     story: "Historia",
     music: "Música",
+    events: "Eventos",
     contact: "Contacto",
     booking: "Reservar",
   },

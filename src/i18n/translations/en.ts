@@ -6,6 +6,7 @@ export const en = {
     experience: "Experience",
     story: "Story",
     music: "Music",
+    events: "Events",
     contact: "Contact",
     booking: "Booking",
   },

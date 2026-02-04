@@ -59,6 +59,11 @@ const Navbar = () => {
     { id: "contact", label: t.nav.contact },
   ];
 
+  const goToEvents = () => {
+    navigate(`/${language}/events`);
+    setIsMobileMenuOpen(false);
+  };
+
   return (
     <nav
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
@@ -80,6 +85,12 @@ const Navbar = () => {
                 {item.label}
               </button>
             ))}
+            <button
+              onClick={goToEvents}
+              className="text-foreground/80 hover:text-primary transition-colors duration-300 font-medium"
+            >
+              {t.nav.events}
+            </button>
             <button
               onClick={goToBooking}
               className="px-4 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-primary/90 transition-colors duration-300 font-medium"
@@ -113,6 +124,12 @@ const Navbar = () => {
                   {item.label}
                 </button>
               ))}
+              <button
+                onClick={goToEvents}
+                className="px-6 py-3 text-left text-foreground/80 hover:text-primary hover:bg-muted/50 transition-colors duration-300"
+              >
+                {t.nav.events}
+              </button>
               <button
                 onClick={goToBooking}
                 className="px-6 py-3 text-left text-primary font-medium hover:bg-muted/50 transition-colors duration-300"
