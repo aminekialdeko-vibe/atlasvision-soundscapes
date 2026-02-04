@@ -16,65 +16,25 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
-        <Routes>
-          {/* Redirect root to default language (French) */}
-          <Route path="/" element={<Navigate to="/fr" replace />} />
-          
-          {/* Language routes - Index */}
-          <Route
-            path="/fr"
-            element={
-              <LanguageProvider>
-                <Index />
-              </LanguageProvider>
-            }
-          />
-          <Route
-            path="/en"
-            element={
-              <LanguageProvider>
-                <Index />
-              </LanguageProvider>
-            }
-          />
-          <Route
-            path="/es"
-            element={
-              <LanguageProvider>
-                <Index />
-              </LanguageProvider>
-            }
-          />
-          
-          {/* Language routes - Booking */}
-          <Route
-            path="/fr/booking"
-            element={
-              <LanguageProvider>
-                <Booking />
-              </LanguageProvider>
-            }
-          />
-          <Route
-            path="/en/booking"
-            element={
-              <LanguageProvider>
-                <Booking />
-              </LanguageProvider>
-            }
-          />
-          <Route
-            path="/es/booking"
-            element={
-              <LanguageProvider>
-                <Booking />
-              </LanguageProvider>
-            }
-          />
-          
-          {/* Catch-all for 404 */}
-          <Route path="*" element={<NotFound />} />
-        </Routes>
+        <LanguageProvider>
+          <Routes>
+            {/* Redirect root to default language (French) */}
+            <Route path="/" element={<Navigate to="/fr" replace />} />
+            
+            {/* Language routes - Index */}
+            <Route path="/fr" element={<Index />} />
+            <Route path="/en" element={<Index />} />
+            <Route path="/es" element={<Index />} />
+            
+            {/* Language routes - Booking */}
+            <Route path="/fr/booking" element={<Booking />} />
+            <Route path="/en/booking" element={<Booking />} />
+            <Route path="/es/booking" element={<Booking />} />
+            
+            {/* Catch-all for 404 */}
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </LanguageProvider>
       </BrowserRouter>
     </TooltipProvider>
   </QueryClientProvider>
