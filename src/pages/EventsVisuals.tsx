@@ -9,9 +9,12 @@ import event3 from "@/assets/events/event-3.png";
 // Poster images
 import poster1 from "@/assets/events/poster-1.png";
 import poster2 from "@/assets/events/poster-2.png";
+import poster3 from "@/assets/events/poster-3.png";
+import poster4 from "@/assets/events/poster-4.png";
+import poster5 from "@/assets/events/poster-5.png";
 
 const eventImages = [event1, event2, event3];
-const posterImages = [poster1, poster2];
+const posterImages = [poster1, poster2, poster3, poster4, poster5];
 
 const EventsVisuals = () => {
   return (
