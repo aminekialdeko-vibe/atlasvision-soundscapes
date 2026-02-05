@@ -36,7 +36,7 @@ export const es = {
     vision: {
       title: "La Visión",
       content:
-        "Más que solo música, Atlas Vision es una filosofía de presencia y asombro. En un mundo que se mueve demasiado rápido, estos viajes sonoros ofrecen un santuario para el alma — un espacio para desconectarse del ruido y reconectarse con lo que verdaderamente importa. Atlas Vision promete un encuentro transformador con lo sublime.",
+        "Más que solo música, Atlas Vision es una filosofía de presencia y asombro. En un mundo que se mueve demasiado rápido, estos viajes sonoros ofrecen un santuario para el alma, un espacio para desconectarse del ruido y reconectarse con lo que verdaderamente importa. Atlas Vision promete un encuentro transformador con lo sublime.",
     },
   },
 
