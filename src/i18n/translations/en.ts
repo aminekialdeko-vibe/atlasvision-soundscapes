@@ -36,7 +36,7 @@ export const en = {
     vision: {
       title: "The Vision Forward",
       content:
-        "More than just music, Atlas Vision is a philosophy of presence and wonder. In a world that moves too fast, these sound journeys offer a sanctuary for the soul, a space to disconnect from the noise and reconnect with what matters. Whether experienced in the solitude of headphones or the collective energy of a festival, Atlas Vision promises a transformative encounter with the sublime.",
+        "More than just music, Atlas Vision is a philosophy of presence and wonder. In a world that moves too fast, these sound journeys offer a sanctuary for the soul — a space to disconnect from the noise and reconnect with what truly matters. Atlas Vision promises a transformative encounter with the sublime.",
     },
   },
 

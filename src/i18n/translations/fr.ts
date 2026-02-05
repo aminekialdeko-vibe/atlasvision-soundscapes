@@ -36,7 +36,7 @@ export const fr = {
     vision: {
       title: "La Vision",
       content:
-        "Plus qu'une simple musique, Atlas Vision est une philosophie de présence et d'émerveillement. Dans un monde qui va trop vite, ces voyages sonores offrent un sanctuaire pour l'âme, un espace pour se déconnecter du bruit et se reconnecter à l'essentiel. Que ce soit dans la solitude d'un casque ou l'énergie collective d'un festival, Atlas Vision promet une rencontre transformatrice avec le sublime.",
+        "Plus qu'une simple musique, Atlas Vision est une philosophie de présence et d'émerveillement. Dans un monde qui va trop vite, ces voyages sonores offrent un sanctuaire pour l'âme — un espace pour se déconnecter du bruit et se reconnecter à l'essentiel. Atlas Vision promet une rencontre transformatrice avec le sublime.",
     },
   },
 
