@@ -12,9 +12,13 @@ import poster2 from "@/assets/events/poster-2.png";
 import poster3 from "@/assets/events/poster-3.png";
 import poster4 from "@/assets/events/poster-4.png";
 import poster5 from "@/assets/events/poster-5.png";
+import poster6 from "@/assets/events/poster-6.png";
+import poster7 from "@/assets/events/poster-7.png";
+import poster8 from "@/assets/events/poster-8.png";
+import poster9 from "@/assets/events/poster-9.png";
 
 const eventImages = [event1, event2, event3];
-const posterImages = [poster1, poster2, poster3, poster4, poster5];
+const posterImages = [poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9];
 
 const EventsVisuals = () => {
   return (
