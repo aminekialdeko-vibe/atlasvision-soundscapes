@@ -47,10 +47,10 @@ serve(async (req: Request): Promise<Response> => {
       );
     }
 
-    // Send email to atlasvision.soundscapes@gmail.com
+    // Send email to aminekialdeko@gmail.com
     const emailResponse = await resend.emails.send({
       from: "Atlas Vision Contact <onboarding@resend.dev>",
-      to: ["atlasvision.soundscapes@gmail.com"],
+      to: ["aminekialdeko@gmail.com"],
       subject: `Nouveau message de ${name} - Atlas Vision`,
       reply_to: email,
       html: `
