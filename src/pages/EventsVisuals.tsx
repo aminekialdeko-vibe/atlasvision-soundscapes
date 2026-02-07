@@ -1,5 +1,7 @@
+import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import ImageLightbox from "@/components/ImageLightbox";
 
 // Event format images
 import event1 from "@/assets/events/event-1.png";
@@ -21,6 +23,8 @@ const eventImages = [event1, event2, event3];
 const posterImages = [poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9];
 
 const EventsVisuals = () => {
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
+
   return (
     <div className="min-h-screen bg-background">
       <Navbar />
@@ -41,12 +45,13 @@ const EventsVisuals = () => {
             {eventImages.map((img, index) => (
               <div 
                 key={index} 
-                className="overflow-hidden rounded-lg"
+                className="overflow-hidden rounded-lg cursor-pointer group"
+                onClick={() => setSelectedImage(img)}
               >
                 <img
                   src={img}
                   alt=""
-                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -62,12 +67,13 @@ const EventsVisuals = () => {
             {posterImages.map((img, index) => (
               <div 
                 key={index} 
-                className="overflow-hidden rounded-lg"
+                className="overflow-hidden rounded-lg cursor-pointer group"
+                onClick={() => setSelectedImage(img)}
               >
                 <img
                   src={img}
                   alt=""
-                  className="w-full h-auto object-contain transition-transform duration-500 hover:scale-105"
+                  className="w-full h-auto object-contain transition-transform duration-500 group-hover:scale-105"
                   loading="lazy"
                 />
               </div>
@@ -77,6 +83,12 @@ const EventsVisuals = () => {
       </section>
 
       <Footer />
+
+      {/* Lightbox Modal */}
+      <ImageLightbox 
+        src={selectedImage} 
+        onClose={() => setSelectedImage(null)} 
+      />
     </div>
   );
 };
