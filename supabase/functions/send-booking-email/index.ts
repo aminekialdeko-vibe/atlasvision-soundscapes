@@ -127,7 +127,7 @@ serve(async (req: Request): Promise<Response> => {
     // Send email to aminekialdeko@gmail.com
     const emailResponse = await resend.emails.send({
       from: "Atlas Vision Booking <onboarding@resend.dev>",
-      to: ["aminekialdeko@gmail.com"],
+      to: ["atlasvision.soundscapes@gmail.com"],
       subject: `New Booking Request – Atlas Vision | ${body.eventName}`,
       html: emailHtml,
     });
