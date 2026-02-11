@@ -18,9 +18,12 @@ import poster6 from "@/assets/events/poster-6.png";
 import poster7 from "@/assets/events/poster-7.png";
 import poster8 from "@/assets/events/poster-8.png";
 import poster9 from "@/assets/events/poster-9.png";
+import poster10 from "@/assets/events/poster-10.png";
+import poster11 from "@/assets/events/poster-11.png";
+import poster12 from "@/assets/events/poster-12.png";
 
 const eventImages = [event1, event2, event3];
-const posterImages = [poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9];
+const posterImages = [poster1, poster2, poster3, poster4, poster5, poster6, poster7, poster8, poster9, poster10, poster11, poster12];
 
 const EventsVisuals = () => {
   const [selectedImage, setSelectedImage] = useState<string | null>(null);
